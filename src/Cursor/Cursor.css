@@ -10,20 +10,20 @@ html {
   width: 100%;
 }
 
-.App {
-  /* color: aqua */
+/* .App {
+  color: aqua
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  /* background-color: pink; */
-}
+  background-color: pink;
+} */
 
-.title {
+/* .title {
   font-family: "Poppins";
   font-size: 10rem;
-}
+} */
 
 .cursor {
   background-color: #111;
