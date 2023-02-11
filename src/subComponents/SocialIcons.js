@@ -30,7 +30,7 @@ export default function SocialIcons() {
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
-          to={{ pathname: "" }}
+          to={{ pathname: "https://github.com/jayPreak" }}
         >
           <Github width={25} height={25} fill="currentColor" />
         </NavLink>
@@ -39,7 +39,7 @@ export default function SocialIcons() {
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
-          to={{ pathname: "" }}
+          to={{ pathname: "https://twitter.com/jayPreak" }}
         >
           <Twitter width={25} height={25} fill="currentColor" />
         </NavLink>
@@ -48,7 +48,9 @@ export default function SocialIcons() {
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
-          to={{ pathname: "" }}
+          to={{
+            pathname: "https://www.linkedin.com/in/jayesh-bhushan-587616200/",
+          }}
         >
           <LinkedIn width={25} height={25} fill="currentColor" />
         </NavLink>
@@ -57,7 +59,7 @@ export default function SocialIcons() {
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
-          to={{ pathname: "" }}
+          to={{ pathname: "https://www.instagram.com/jaypreak8/" }}
         >
           <Instagram width={25} height={25} fill="currentColor" />
         </NavLink>
