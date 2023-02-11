@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GlobalStyle from "./globalStyles";
 import { ThemeProvider } from "styled-components";
-import { lightTheme } from "./components/Themes";
+import { darkTheme, lightTheme } from "./components/Themes";
 import { Route, Switch } from "react-router-dom";
 import Main from "./components/Main";
 import AboutPage from "./components/AboutPage";
@@ -17,7 +17,7 @@ export default function App() {
     x: 0,
     y: 0,
   });
-  console.log(mousePosition);
+  // console.log(mousePosition);
 
   const [cursorVariant, setCursorVariant] = useState("default");
 
@@ -63,16 +63,16 @@ export default function App() {
         animate={cursorVariant}
       />
       <GlobalStyle />
-      <ThemeProvider theme={lightTheme}></ThemeProvider>
+      <ThemeProvider theme={lightTheme}>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/blog" component={BlogPage} />
+          <Route exact path="/work" component={WorkPage} />
+          <Route exact path="/skills" component={MySkillsPage} />
+        </Switch>
+      </ThemeProvider>
       {/* App File */}
-
-      <Switch>
-        <Route exact path="/" component={Main} />
-        <Route exact path="/about" component={AboutPage} />
-        <Route exact path="/blog" component={BlogPage} />
-        <Route exact path="/work" component={WorkPage} />
-        <Route exact path="/skills" component={MySkillsPage} />
-      </Switch>
     </div>
   );
 }
