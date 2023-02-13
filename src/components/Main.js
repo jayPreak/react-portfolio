@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import LogoComponent from "../subComponents/LogoComponent";
 import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
+import { YinYang } from "./AllSvgs";
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -45,7 +46,7 @@ const Projects = styled(NavLink)`
 `;
 
 const Works = styled(NavLink)`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
   left: calc(1rem + 2vw);
@@ -64,7 +65,7 @@ const BottomBar = styled.div`
   justify-content: space-evenly;
 `;
 const About = styled(NavLink)`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
 
   text-decoration: none;
   z-index: 1;
@@ -76,14 +77,73 @@ const Skills = styled(NavLink)`
   z-index: 1;
 `;
 
+const rotate = keyframes`
+from{
+  transform: rotate(0);
+}
+to{
+  transform: rotate(360deg);
+}
+`;
+
+const Center = styled.div`
+  position: absolute;
+  top: ${(props) => (props.click ? "85%" : "50%")};
+  left: ${(props) => (props.click ? "92%" : "50%")};
+  transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+
+  & > :first-child {
+    animation: ${rotate} infinite 1.5s linear;
+  }
+
+  & > :last-child {
+    display: ${(props) => (props.click ? "none" : "inline-block")};
+    padding: 1rem;
+  }
+`;
+
+const DarkDiv = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+  right: 50%;
+  width: ${(props) => (props.click ? "50%" : "0%")};
+  height: ${(props) => (props.click ? "100%" : "0%")};
+  z-index: 1;
+  transition: height 0.5s ease, width 1s ease 0.5s;
+`;
+
 export default function Main() {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+
   return (
     <MainContainer>
+      <DarkDiv click={click} />
       <Container>
         <PowerButton />
         <LogoComponent />
         <SocialIcons />
 
+        <Center click={click}>
+          <YinYang
+            onClick={() => handleClick()}
+            width={click ? 120 : 200}
+            height={click ? 120 : 200}
+            fill="currentColor"
+          />
+          <span>click here</span>
+        </Center>
         <Contact
           target="_blank"
           to={{ pathname: "mailto:jayesh.preak2003@gmail.com" }}
@@ -95,12 +155,12 @@ export default function Main() {
           <h2>Projects</h2>
         </Projects>
 
-        <Works to="/works">
+        <Works to="/works" click={click}>
           <h2>Works</h2>
         </Works>
 
         <BottomBar>
-          <About to="/about">
+          <About to="/about" click={click}>
             <h2>About Me</h2>
           </About>
           <Skills to="/skills">
