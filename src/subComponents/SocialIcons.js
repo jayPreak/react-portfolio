@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Github, Instagram, LinkedIn, Twitter } from "../components/AllSvgs";
+import { darkTheme } from "../components/Themes";
 
 const Icons = styled.div`
   display: flex;
@@ -20,10 +21,11 @@ const Icons = styled.div`
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) =>
+    props.color === "dark" ? darkTheme.text : darkTheme.body};
 `;
 
-export default function SocialIcons() {
+export default function SocialIcons(props) {
   return (
     <Icons>
       <div>
@@ -32,7 +34,11 @@ export default function SocialIcons() {
           target="_blank"
           to={{ pathname: "https://github.com/jayPreak" }}
         >
-          <Github width={25} height={25} fill="currentColor" />
+          <Github
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
       <div>
@@ -41,7 +47,11 @@ export default function SocialIcons() {
           target="_blank"
           to={{ pathname: "https://twitter.com/jayPreak" }}
         >
-          <Twitter width={25} height={25} fill="currentColor" />
+          <Twitter
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
       <div>
@@ -52,7 +62,11 @@ export default function SocialIcons() {
             pathname: "https://www.linkedin.com/in/jayesh-bhushan-587616200/",
           }}
         >
-          <LinkedIn width={25} height={25} fill="currentColor" />
+          <LinkedIn
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
       <div>
@@ -61,10 +75,14 @@ export default function SocialIcons() {
           target="_blank"
           to={{ pathname: "https://www.instagram.com/jaypreak8/" }}
         >
-          <Instagram width={25} height={25} fill="currentColor" />
+          <Instagram
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
-      <Line />
+      <Line color={props.theme} />
     </Icons>
   );
 }

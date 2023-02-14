@@ -132,8 +132,8 @@ export default function Main() {
       <DarkDiv click={click} />
       <Container>
         <PowerButton />
-        <LogoComponent />
-        <SocialIcons />
+        <LogoComponent theme={click ? "dark" : "light"} />
+        <SocialIcons theme={click ? "dark" : "light"} />
 
         <Center click={click}>
           <YinYang
