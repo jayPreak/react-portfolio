@@ -58,11 +58,7 @@ export default function App() {
       {/* <h1 onMouseEnter={textEnter} onMouseLeave={textLeave} className="title">
         Jayesh Bhushan
       </h1> */}
-      <motion.div
-        className="cursor"
-        variants={variants}
-        animate={cursorVariant}
-      />
+
       <GlobalStyle />
       <ThemeProvider theme={lightTheme}>
         <Switch>
@@ -74,6 +70,11 @@ export default function App() {
         </Switch>
       </ThemeProvider>
       {/* App File */}
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+      />
     </div>
   );
 }

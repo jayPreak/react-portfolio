@@ -115,7 +115,7 @@ const DarkDiv = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  background-color: #000;
+  background-color: ${(props) => props.theme.text};
   right: 50%;
   width: ${(props) => (props.click ? "50%" : "0%")};
   height: ${(props) => (props.click ? "100%" : "0%")};
@@ -141,7 +141,7 @@ export default function Main() {
             onClick={() => handleClick()}
             width={click ? 120 : 200}
             height={click ? 120 : 200}
-            fill="currentColor"
+            fill="#a90000"
           />
           <span>click here</span>
         </Center>

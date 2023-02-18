@@ -11,7 +11,7 @@ const Power = styled.button`
   background-color: #fcf6f4;
   padding: 0.3rem;
   border-radius: 50%;
-  border: 1px solid #000;
+  border: 1px solid #a90000;
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
@@ -33,7 +33,7 @@ export default function PowerButton() {
   return (
     <Power>
       <NavLink to="/">
-        <PowerBtn width={30} height={30} fill="currentColor" />
+        <PowerBtn width={30} height={30} fill="#a90000" />
       </NavLink>
     </Power>
   );
